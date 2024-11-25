@@ -7,11 +7,19 @@ import './App.css';
 function App() {
   const [message, setMessage] = useState('');
 
-  useEffect(() => {
-    axios.get('http://localhost:5001/')
-      .then(response => setMessage(response.data))
-      .catch(error => console.error(error));
-  }, []);
+
+useEffect(() => {
+  axios.get('/api')
+    .then(response => setMessage(response.data))
+    .catch(error => console.error(error));
+}, []);
+
+
+//  useEffect(() => {
+//    axios.get('http://localhost:5001/')
+//      .then(response => setMessage(response.data))
+//      .catch(error => console.error(error));
+//  }, []);
 
   return (
     <div className="App">

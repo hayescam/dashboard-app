@@ -9,11 +9,11 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  user: "postgres",
+  host: "localhost",
+  database: "dashboard_db",
+  password: "&qc$-N4Rv-Af0-@fUoP",//process.env.DB_PASSWORD,
+  port: 5432
 });
 
 pool.connect()
@@ -23,10 +23,10 @@ pool.connect()
 
 app.use(cors());  // Allow cross-origin requests
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Backend is running!');
 });
 
 app.listen(PORT, () => {
-  console.log('Server running on port ${PORT}');
+  console.log(`Server running on port ${PORT}`);
 });

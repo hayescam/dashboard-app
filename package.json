@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "dotenv": "^16.4.5"
+  },
+  "scripts": {
+    "start:frontend": "npm start --prefix frontend",
+    "start:backend": "node backend/src/index.js",
+    "check-ports": "if lsof -i :5001; then echo 'Port 5001 is in use'; exit 1; fi && if lsof -i :3000; then echo 'Port 3000 is in use'; exit 1; fi",
+    "start:all": "npm run check-ports || exit 1 && concurrently \"npm run start:backend\" \"npm run start:frontend\""
   }
 }
