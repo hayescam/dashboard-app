@@ -6,9 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "scripts": {
-    "start:frontend": "npm start --prefix frontend",
-    "start:backend": "node backend/index.js",
-    "start:all": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+    "start:frontend": "echo 'starting frontend...' && npm start --prefix frontend",
+    "start:backend": "echo 'starting backend...' && node backend/index.js",
+    "start:all": "cd .. && npm run start:all"
   },
   "keywords": [],
   "author": "",

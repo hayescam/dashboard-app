@@ -13,10 +13,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start:frontend": "npm start --prefix frontend",
-    "start:backend": "node backend/index.js",
-    "start:all": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start": "cross-env BROWSER='open -a \"Google Chrome\" --start-fullscreen' react-scripts start",
+    "start:frontend": "echo 'starting frontend...' && npm start --prefix frontend",
+    "start:backend": "echo 'starting backend...' && node ../backend/src/index.js",
+    "start:all": "cd .. && echo 'starting dashboard...' && npm run start:all",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,5 +39,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5001"
+  "proxy": "http://localhost:5001",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }
